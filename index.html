@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <title>Pretty Forms</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <!-- Site CSS -->
+    <link href="styles.css" rel="stylesheet" type="text/css" media="screen" />
+    
+    <!-- JS Lib -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+<body>
+    <div class="pageContainer">
+        <div class="checkboxes">
+            <h2>What do you like</h2>
+            <label>I like trains</label>
+            <input type="checkbox" name="likeTrains" />
+            
+            <label>I like cheese</label>
+            <input type="checkbox" name="likeCheese" />
+            
+            <label>I like kittens (automatically ticked as everyone loves kittens)</label>
+            <input type="checkbox" name="likeKittens" checked="checked" />
+        </div>
+        
+        <div class="radioButtons">
+            <h2>What do you like the most?</h2>
+            <label>I like trains</label>
+            <input type="radio" name="likeMost" />
+            
+            <label>I like cheese</label>
+            <input type="radio" name="likeMost" />
+            
+            <label>I like kittens (automatically ticked as everyone loves kittens)</label>
+            <input type="radio" name="likeMost" checked="checked" />
+        </div>
+    </div>
+    
+    <!-- Fader -->
+    <script src="forms.js" type="text/javascript"></script>
+</body>
+</html>
