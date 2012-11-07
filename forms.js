@@ -71,10 +71,10 @@ PrettyRadio = function(realRadio)
     }
 };
 
-PrettySelect = function(selectBox) 
+PrettySelect = function(realSelectBox) 
 {   
   //hide element
-    selectBox.hide();
+	realSelectBox.hide();
     
     //replace element with a div with a select class
     var fakeSelect = $('<div/>', {
@@ -82,12 +82,12 @@ PrettySelect = function(selectBox)
         click: function() {
             toggleOptions();
         }
-    }).insertAfter(selectBox);
+    }).insertAfter(realSelectBox);
     
     //added text of first option to div
     var selectedOption = $('<div/>', {
         "class": "selectedOption",
-        "text": selectBox.find("option").first().text()
+        "text": realSelectBox.find("option").first().text()
     }).appendTo(fakeSelect);
     
     //add a list for the options
@@ -96,17 +96,14 @@ PrettySelect = function(selectBox)
         "style": "list-style: none;" +
                  "position: absolute;" +
                  "top: " + fakeSelect.outerHeight(true) + "px;" +
-                 "left: 0;",
-        click: function() {
-            selectOption();
-        }
+                 "left: 0;"
     }).appendTo(fakeSelect);
     
     //hide options
     toggleOptions();
     
     //add each option to the list
-    selectBox.find("option").each(function() {
+    realSelectBox.find("option").each(function() {
         var option = $('<li/>', {
             "text": $(this).text(),
             click: function() {
@@ -124,7 +121,18 @@ PrettySelect = function(selectBox)
     //select option
     function selectOption(option)
     {
+    	//change selected text
         selectedOption.text(option.text());
+        
+        //unselect other options
+        realSelectBox.find("option").removeAttr("selected");
+        
+        //select option
+        realSelectBox.find("option").each(function() {
+            if(option.text() == $(this).text()) {
+            	$(this).attr("selected", "selected");
+            }
+        });
     }
 };
 
