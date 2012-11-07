@@ -11,15 +11,15 @@ PrettyCheckbox = function(realCheckbox)
     }
     
     //replace element with a div with a checkbox class
-    $('<div/>', {
+    var fakeCheckbox = $('<div/>', {
         "class": checkboxClass,
         click: function() {
-            toggleSelected($(this));
+            toggleSelected();
         }
     }).insertAfter(realCheckbox);
     
     //toggle selected status
-    function toggleSelected(fakeCheckbox)
+    function toggleSelected()
     {
         if(realCheckbox.is(":checked")) 
         {
@@ -45,16 +45,16 @@ PrettyRadio = function(realRadio)
         var radioClass = "radio"
     }
     
-    //replace element with a div with a checkbox class
-    $('<div/>', {
+    //replace element with a div with a radio class
+    var fakeRadio = $('<div/>', {
         "class": radioClass,
         click: function() {
-            toggleSelected($(this));
+            toggleSelected();
         }
     }).insertAfter(realRadio);
     
     //toggle selected status
-    function toggleSelected(fakeRadio)
+    function toggleSelected()
     {
         if(!realRadio.is(":checked")) 
         {
@@ -71,15 +71,61 @@ PrettyRadio = function(realRadio)
     }
 };
 
-PrettySelect = function(element) 
+PrettySelect = function(selectBox) 
 {   
-    //hide element
+  //hide element
+    selectBox.hide();
     
     //replace element with a div with a select class
+    var fakeSelect = $('<div/>', {
+        "class": "select",
+        click: function() {
+            toggleOptions();
+        }
+    }).insertAfter(selectBox);
     
-    //update hidden element on click
+    //added text of first option to div
+    var selectedOption = $('<div/>', {
+        "class": "selectedOption",
+        "text": selectBox.find("option").first().text()
+    }).appendTo(fakeSelect);
     
-    //update div selected status
+    //add a list for the options
+    var options =  $('<ul/>', {
+        "class": "options",
+        "style": "list-style: none;" +
+                 "position: absolute;" +
+                 "top: " + fakeSelect.outerHeight(true) + "px;" +
+                 "left: 0;",
+        click: function() {
+            selectOption();
+        }
+    }).appendTo(fakeSelect);
+    
+    //hide options
+    toggleOptions();
+    
+    //add each option to the list
+    selectBox.find("option").each(function() {
+        var option = $('<li/>', {
+            "text": $(this).text(),
+            click: function() {
+                selectOption($(this));
+            }
+        }).appendTo(options);
+    });
+    
+    //toggle options
+    function toggleOptions()
+    {
+        options.toggle();
+    }
+    
+    //select option
+    function selectOption(option)
+    {
+        selectedOption.text(option.text());
+    }
 };
 
 $(function() 
