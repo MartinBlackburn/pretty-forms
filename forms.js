@@ -95,8 +95,8 @@ PrettySelect = function(realSelectBox)
         "class": "options",
         "style": "list-style: none;" +
                  "position: absolute;" +
-                 "top: " + fakeSelect.outerHeight(true) + "px;" +
-                 "left: 0;"
+                 "top: " + (fakeSelect.outerHeight(true)-2) + "px;" +
+                 "left: -1px;"
     }).appendTo(fakeSelect);
     
     //hide options
