@@ -4,6 +4,11 @@
 * {
 	margin: 0;
 	padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .pageContainer {
@@ -28,13 +33,17 @@ input {
     CHECKBOX
 \*----------------------------------------------------------------------------------------------------------------*/
 .checkbox {
-	width: 15px;
-	height: 15px;
-	border: 1px solid #ccc;
+	width: 17px;
+	height: 17px;
+	border: 1px solid #555;
 	margin-bottom: 20px;
 	display: block;
 	
+	box-shadow: inset 0 0 0 2px #fff;
+	
 	background: #fff;
+	
+	cursor: pointer;
 }
 
 .checkbox.selected {
@@ -49,14 +58,18 @@ input {
     RADIO BUTTON
 \*----------------------------------------------------------------------------------------------------------------*/
 .radio {
-    width: 15px;
-    height: 15px;
-    border: 1px solid #ccc;
+    width: 17px;
+    height: 17px;
+    border: 1px solid #555;
     border-radius: 10px;
     margin-bottom: 20px;
     display: block;
     
+    box-shadow: inset 0 0 0 2px #fff;
+    
     background: #fff;
+    
+    cursor: pointer;
 }
 
 .radio.selected {
@@ -71,15 +84,32 @@ input {
     SELECT
 \*----------------------------------------------------------------------------------------------------------------*/
 .select {
-	padding: 5px 10px;
-	border: 1px solid #ccc;
+	border: 1px solid #555;
 	display: inline-block;
+	box-sizing: border-box;
 	
 	position: relative;
+	
+	cursor: pointer;
+}
+
+.selectedOption {
+	padding: 5px 15px 5px 10px;
+	border-right: 1px solid #555;
+	display: inline-block;
+}
+
+.dropdownArrow {
+	padding: 5px;
+	display: inline-block;
+	
+	font-size: 0.7em;
 }
 
 .select .options {
+	width: 100%;
 	padding: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #555;
+    box-sizing: border-box;
 }
 

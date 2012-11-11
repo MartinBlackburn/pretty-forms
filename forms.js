@@ -90,6 +90,12 @@ PrettySelect = function(realSelectBox)
         "text": realSelectBox.find("option").first().text()
     }).appendTo(fakeSelect);
     
+    //adde arrrow to indicate dropdown
+    var dropdownArrow = $('<div/>', {
+        "class": "dropdownArrow",
+        "text": "▼"
+    }).appendTo(fakeSelect);
+    
     //add a list for the options
     var options =  $('<ul/>', {
         "class": "options",
