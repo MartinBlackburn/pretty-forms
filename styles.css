@@ -113,3 +113,6 @@ input {
     box-sizing: border-box;
 }
 
+.select .options li:hover {
+	background: #ccc;
+}
