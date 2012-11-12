@@ -10,9 +10,9 @@ Just include the forms.js and then you can then style each form elements with th
 ".radio" for a checkbox  
 ".radio.selected" for a ticked checkbox  
 
-".select" for a select box
-".select .options" for the dropdown list of options
-".select .options li" for a single option
+".select" for a select box  
+".select .options" for the dropdown list of options  
+".select .options li" for a single option  
 ".select .options li:hover" for a single option when hovered
 
 #### Notes
