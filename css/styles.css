@@ -4,6 +4,9 @@
 * {
 	margin: 0;
 	padding: 0;
+	
+	color: #333;
+	
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -25,6 +28,11 @@ input {
 	margin-bottom: 20px;
 }
 
+.textContainer {
+    padding-top: 20px;
+    
+    text-align: center;
+}
 
 
 

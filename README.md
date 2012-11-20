@@ -15,5 +15,7 @@ Just include the forms.js and then you can then style each form elements with th
 ".select .options li" for a single option  
 ".select .options li:hover" for a single option when hovered
 
+[View it in action here](http://martinblackburn.github.com/pretty-forms/)
+
 #### Notes
 This was built using jQuery 1.8.2
