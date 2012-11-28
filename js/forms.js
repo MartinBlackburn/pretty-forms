@@ -101,7 +101,7 @@ PrettySelect = function(realSelectBox)
         "class": "options",
         "style": "list-style: none;" +
                  "position: absolute;" +
-                 "top: " + (fakeSelect.outerHeight(true)-2) + "px;" +
+                 "top: " + (fakeSelect.outerHeight()-2) + "px;" +
                  "left: -1px;"
     }).appendTo(fakeSelect);
     
