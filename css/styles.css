@@ -92,35 +92,59 @@ input {
     SELECT
 \*----------------------------------------------------------------------------------------------------------------*/
 .select {
-	border: 1px solid #555;
-	display: inline-block;
-	box-sizing: border-box;
-	
-	position: relative;
-	
-	cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #555;
+    margin-bottom: 10px;
+    display: inline-block;
+    
+    background: #fff;
+
+    line-height: 1em;
+
+    position: relative;
+
+    cursor: pointer;
 }
 
-.selectedOption {
-	padding: 5px 15px 5px 10px;
-	border-right: 1px solid #555;
-	display: inline-block;
+.select .selectedOption {
+    padding: 5px 15px 5px 10px;
+    display: inline-block;
 }
 
-.dropdownArrow {
-	padding: 5px;
-	display: inline-block;
-	
-	font-size: 0.7em;
+.select .dropdownArrow {
+    padding: 5px;
+    display: block;
+    
+    background: #555;
+    
+    font-size: 0.7em;
+    color: #fff;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .select .options {
-	width: 100%;
-	padding: 5px;
+    width: 100%;
     border: 1px solid #555;
-    box-sizing: border-box;
+    
+    background: #fff;
+
+    list-style: none;
+    
+    position: relative;
+    top: 100%;
+    left: 0;
+    
+    z-index: 100;
+}
+
+.select .options li {
+    padding: 3px 10px;
 }
 
 .select .options li:hover {
-	background: #ccc;
+    background: #ccc;
 }
