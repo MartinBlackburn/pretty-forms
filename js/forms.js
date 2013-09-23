@@ -97,8 +97,7 @@ PrettySelect = function(realSelectBox)
     
     //add a list for the options
     var options =  $('<ul/>', {
-        "class": "options",
-        "style": "position: absolute;"
+        "class": "options"
     }).appendTo(fakeSelect);
     
     //hide options
