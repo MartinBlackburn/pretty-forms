@@ -18,4 +18,4 @@ Just include the forms.js and then you can then style each form elements with th
 [View it in action here](http://martinblackburn.github.com/pretty-forms/)
 
 #### Notes
-This was built using jQuery 1.8.2
+This was built using jQuery 1.10.2
