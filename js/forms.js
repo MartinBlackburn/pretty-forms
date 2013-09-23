@@ -24,10 +24,10 @@ PrettyCheckbox = function(realCheckbox)
         if(realCheckbox.is(":checked")) 
         {
             fakeCheckbox.removeClass("selected");
-            realCheckbox.removeAttr("checked");
+            realCheckbox.prop("checked", false);
         } else {
             fakeCheckbox.addClass("selected");
-            realCheckbox.attr("checked", "checked");
+            realCheckbox.prop("checked", true);
         }
     }
 };
@@ -61,12 +61,12 @@ PrettyRadio = function(realRadio)
             //deselect all others with same name
             var name = realRadio.attr("name");
             
-            realRadio.closest("form").find("input[type='radio'][name='" + name + "']").removeAttr("checked");
+            realRadio.closest("form").find("input[type='radio'][name='" + name + "']").prop("checked", false);
             realRadio.closest("form").find(".radio").removeClass("selected");
             
             //select this one
             fakeRadio.addClass("selected");
-            realRadio.attr("checked", "checked");
+            realRadio.prop("checked", true);
         }
     }
 };
