@@ -13,17 +13,17 @@
 </head>
 <body>
     <div class="pageContainer">
-	    <form action="" method="post">
+	    <form action="" method="get">
 	        <div class="checkboxes">
 	            <h2>What do you like</h2>
 	            <label>I like trains</label>
-	            <input type="checkbox" name="trainCheckbox" value="trains" />
+	            <input type="checkbox" name="trainCheckbox" />
 	            
 	            <label>I like cheese</label>
-	            <input type="checkbox" name="cheeseCheckbox" value="cheese" />
+	            <input type="checkbox" name="cheeseCheckbox" />
 	            
 	            <label>I like kittens (automatically ticked as everyone loves kittens)</label>
-	            <input type="checkbox" name="kittensCheckbox" value="kittens" checked="checked" />
+	            <input type="checkbox" name="kittensCheckbox" checked="checked" />
 	        </div>
 	        
 	        <div class="radioButtons">
@@ -46,6 +46,8 @@
                     <option>Puppys</option>
                 </select>
             </div>
+            
+            <button type="submit">Submit</button>
 	    </form>
 	    
 	    <div class="textContainer">
