@@ -132,6 +132,14 @@ PrettySelect = function(realSelectBox)
         realSelectBox.find("option").each(function() {
             if(option.text() == $(this).text()) {
                 $(this).attr("selected", "selected");
+                
+                var value = $(this).val();
+
+                if(!value) {
+                    value = $(this).text();
+                }
+
+                realSelectBox.val(value);
             }
         });
     }
