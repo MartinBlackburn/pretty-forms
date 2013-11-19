@@ -1,6 +1,6 @@
 PrettyCheckbox = function(realCheckbox) 
 {   
-    //hide element
+    //hide real checkbox
     realCheckbox.hide();
     
     //if selected set selected class
@@ -10,7 +10,7 @@ PrettyCheckbox = function(realCheckbox)
         var checkboxClass = "checkbox"
     }
     
-    //replace element with a div with a checkbox class
+    //replace checkbox button with <div class'checkbox' />
     var fakeCheckbox = $('<div/>', {
         "class": checkboxClass,
         click: function() {
@@ -29,7 +29,7 @@ PrettyCheckbox = function(realCheckbox)
 
 PrettyRadio = function(realRadio) 
 {   
-  //hide element
+    //hide real radio button
     realRadio.hide();
     
     //if selected set selected class
@@ -39,7 +39,7 @@ PrettyRadio = function(realRadio)
         var radioClass = "radio"
     }
     
-    //replace element with a div with a radio class
+    //replace radio button with <div class'radio' />
     var fakeRadio = $('<div/>', {
         "class": radioClass,
         click: function() {
@@ -52,7 +52,7 @@ PrettyRadio = function(realRadio)
     {
         if(!realRadio.is(":checked")) 
         {
-            //deselect all others with same name
+            //deselect all other radio buttons with same name
             var name = realRadio.attr("name");
             
             realRadio.closest("form").find(".radio").removeClass("selected");
@@ -67,10 +67,10 @@ PrettyRadio = function(realRadio)
 
 PrettySelect = function(realSelectBox) 
 {   
-   //hide element
+    //hide element
     realSelectBox.hide();
     
-    //replace element with a div with a select class
+    //replace select button with <div class'select' />
     var fakeSelect = $('<div/>', {
         "class": "select",
         click: function() {
@@ -78,18 +78,18 @@ PrettySelect = function(realSelectBox)
         }
     }).insertAfter(realSelectBox);
     
-    //added text of first option to div
+    //display text of first option
     var selectedOption = $('<div/>', {
         "class": "selectedOption",
         "text": realSelectBox.find("option").first().text()
     }).appendTo(fakeSelect);
     
-    //if option is selected, use that text instead
+    //if there is an option selected, use that text instead
     realSelectBox.find("option:selected").each(function() {
         selectOption($(this));
     });
     
-    //adde arrrow to indicate dropdown
+    //add arrow to indicate dropdown
     var dropdownArrow = $('<div/>', {
         "class": "dropdownArrow",
         "text": "▼"
