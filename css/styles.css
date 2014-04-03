@@ -111,57 +111,14 @@ button:hover {
 .select {
     width: 100%;
     max-width: 400px;
+    padding: 5px;
     border: 1px solid #555;
+    border-radius: 3px;
     margin-bottom: 20px;
     display: inline-block;
     
-    background: #fff;
-
-    line-height: 1em;
+    background: #fff url("../images/downarrow.png") no-repeat;
+    background-position: 99% 50%;
 
     position: relative;
-
-    cursor: pointer;
-}
-
-.select .selectedOption {
-    padding: 5px 15px 5px 10px;
-    display: inline-block;
-}
-
-.select .dropdownArrow {
-    padding: 5px;
-    display: block;
-    
-    background: #555;
-    
-    font-size: 0.7em;
-    color: #fff;
-    
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.select .options {
-    width: 100%;
-    border: 1px solid #555;
-    
-    background: #fff;
-
-    list-style: none;
-    
-    position: absolute;
-    top: 100%;
-    left: 0;
-    
-    z-index: 100;
-}
-
-.select .options li {
-    padding: 3px 10px;
-}
-
-.select .options li:hover {
-    background: #ccc;
 }

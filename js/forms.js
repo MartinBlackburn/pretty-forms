@@ -67,82 +67,34 @@ PrettyRadio = function(realRadio)
 
 PrettySelect = function(realSelectBox) 
 {   
-    //hide element
-    realSelectBox.hide();
+    //wrap select div around select element 
+    realSelectBox.wrap("<div class='select'></div>");
     
-    //replace select button with <div class'select' />
+    //element to display selected option
     var fakeSelect = $('<div/>', {
-        "class": "select",
-        click: function() {
-            toggleOptions();
-        }
+        "class": "select-selectedOption",
     }).insertAfter(realSelectBox);
     
-    //display text of first option
-    var selectedOption = $('<div/>', {
-        "class": "selectedOption",
-        "text": realSelectBox.find("option").first().text()
-    }).appendTo(fakeSelect);
+    //add text to fake select
+    fakeSelect.text(realSelectBox.val());    
     
-    //if there is an option selected, use that text instead
-    realSelectBox.find("option:selected").each(function() {
-        selectOption($(this));
+    //style real select box to be same size as fake select
+    //hide it using opacity so its still clickable
+    realSelectBox.css({
+        "width": "100%",
+        "height": "100%",
+        "min-height": "100%",
+        "opacity": "0",
+        "position": "absolute",
+        "top": "0",
+        "left": "0",
+        "cursor": "pointer"
     });
     
-    //add arrow to indicate dropdown
-    var dropdownArrow = $('<div/>', {
-        "class": "dropdownArrow",
-        "text": "▼"
-    }).appendTo(fakeSelect);
-    
-    //add a list for the options
-    var options =  $('<ul/>', {
-        "class": "options"
-    }).appendTo(fakeSelect);
-    
-    //hide options
-    toggleOptions();
-    
-    //add each option to the list
-    realSelectBox.find("option").each(function() {
-        var option = $('<li/>', {
-            "text": $(this).text(),
-            click: function() {
-                selectOption($(this));
-            }
-        }).appendTo(options);
+    //display text of selected option on change
+    realSelectBox.on("change", function(event) {
+        fakeSelect.text(realSelectBox.val());
     });
-    
-    //toggle options
-    function toggleOptions()
-    {
-        options.toggle();
-    }
-    
-    //select option
-    function selectOption(option)
-    {
-        //change selected text
-        selectedOption.text(option.text());
-        
-        //unselect other options
-        realSelectBox.find("option").removeAttr("selected");
-        
-        //select option
-        realSelectBox.find("option").each(function() {
-            if(option.text() == $(this).text()) {
-                $(this).attr("selected", "selected");
-                
-                var value = $(this).val();
-
-                if(!value) {
-                    value = $(this).text();
-                }
-
-                realSelectBox.val(value);
-            }
-        });
-    }
 };
 
 $(function() 
