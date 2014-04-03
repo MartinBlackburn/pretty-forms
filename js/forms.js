@@ -76,7 +76,7 @@ PrettySelect = function(realSelectBox)
     }).insertAfter(realSelectBox);
     
     //add text to fake select
-    fakeSelect.text(realSelectBox.val());    
+    fakeSelect.text(realSelectBox.find("option:selected").text());    
     
     //style real select box to be same size as fake select
     //hide it using opacity so its still clickable
@@ -92,8 +92,10 @@ PrettySelect = function(realSelectBox)
     });
     
     //display text of selected option on change
-    realSelectBox.on("change", function(event) {
-        fakeSelect.text(realSelectBox.val());
+    realSelectBox.on("change", function(event)
+    {
+        var textValue = $(this).find("option:selected").text();
+        fakeSelect.text(textValue);
     });
 };
 
